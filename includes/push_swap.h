@@ -19,6 +19,22 @@ typedef struct s_config
 	int	count_flags;
 }		t_config;
 
+typedef struct t_opscount
+{
+	size_t pa;
+	size_t pb;
+	size_t sa;
+	size_t sb;
+	size_t ss;
+	size_t ra;
+	size_t rb;
+	size_t rr;
+	size_t rra;
+	size_t rrb;
+	size_t rrr;
+}		t_counter;
+
+
 t_stack	*init_stack(int capacity);
 void	sa(t_stack *stack_a);
 t_stack *push_swap (char *flag, int is_bench, t_stack *stack);
