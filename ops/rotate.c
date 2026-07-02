@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkartash <tkartash@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: olkonuro <olkonuro@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/27 18:06:23 by tkartash          #+#    #+#             */
-/*   Updated: 2026/06/27 19:05:42 by tkartash         ###   ########.fr       */
+/*   Updated: 2026/07/01 21:04:14 by olkonuro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	rotate(t_stack *stack)
 	int	i;
 	int	temp;
 
-	if (!stack)
+	if (!stack || stack->top < 2)
 		return ;
 	i = stack->top - 1;
 	temp = stack->arr[i];

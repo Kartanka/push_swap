@@ -1,7 +1,7 @@
 #include "push_swap.h"
 #include "libft.h"
 
-t_stack *push_swap (char *flag, int is_bench, t_stack *stack)
+void push_swap (char *flag, int is_bench, t_stack *stack_a, t_stack *stack_b)
 {
     if (is_bench == 1)
     {
@@ -10,18 +10,15 @@ t_stack *push_swap (char *flag, int is_bench, t_stack *stack)
     if (!flag)
     {
         ft_putstr_fd("--adaptive", 1);
-        return (stack);
     }
     if (ft_strcmp(flag, "--simple") == 0)
-        stack = sort_three(stack);
+         selection_sort(stack_a, stack_b);
     else if (ft_strcmp(flag,"--medium") == 0)
         ft_putstr_fd("--medium", 1);
     else if (ft_strcmp(flag,"--complex") == 0)
         ft_putstr_fd("--complex", 1);
     else
         ft_putstr_fd("--adaptive", 1);
-    
-    return(stack);
 }
 
 int	ft_strcmp(char *s1, char *s2)
