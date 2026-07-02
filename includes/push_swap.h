@@ -37,7 +37,7 @@ typedef struct t_opscount
 
 t_stack	*init_stack(int capacity);
 void	sa(t_stack *stack_a);
-t_stack *push_swap (char *flag, int is_bench, t_stack *stack);
+void push_swap (char *flag, int is_bench, t_stack *stack_a, t_stack *stack_b);
 float	compute_disorder(t_stack *stack_a);
 int	validate_input(int argc, char **argv, t_config *flag);
 int		check_duplication(t_stack *stack);
@@ -51,4 +51,8 @@ t_config *parse_config(int argc, char **argv);
 void	rra(t_stack *stack_a);
 t_stack *sort_three(t_stack *stack);
 void	ra(t_stack *stack_a);
+void pb (t_stack *stack_a, t_stack *stack_b);
+void pa (t_stack *stack_a, t_stack *stack_b);
+void selection_sort(t_stack *stack_a, t_stack *stack_b);
+int	indexOf(t_stack *stack, int num);
 #endif

@@ -3,13 +3,13 @@
 
 int	main(int argc, char **argv)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
-	int		capacity;
-	int		j;
-    t_config *flag;
+	t_stack		*stack_a;
+	t_stack		*stack_b;
+	int			capacity;
+	int			j;
+	t_config	*flag;
 
-    flag = parse_config(argc, argv);
+	flag = parse_config(argc, argv);
 	if (argc < 2)
 		return (0);
 	if (validate_input(argc, argv, flag) == 1)
@@ -23,14 +23,17 @@ int	main(int argc, char **argv)
 		free(stack_b);
 		return (0);
 	}
-    fill_stack(stack_a, argc, argv);
+	fill_stack(stack_a, argc, argv);
 	if (check_duplication(stack_a) == 1)
 		return (0);
-	stack_a = push_swap(flag->flag, flag->bench, stack_a);
+	push_swap(flag->flag, flag->bench, stack_a, stack_b);
+	// stack_a =selection_sort(stack_a, stack_b);
 	j = 0;
 	while (j < stack_a->top)
 	{
+		write(1, "stack_a ", 8);
 		ft_putnbr_fd(stack_a->arr[j], 1);
+		write(1, "\n", 1);
 		j++;
 	}
 	return (0);

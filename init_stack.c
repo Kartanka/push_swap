@@ -25,11 +25,11 @@ void fill_stack(t_stack *stack, int argc, char **argv)
     int k;
 
 	i = count_flag(argc, argv) + 1;
-	k = argc - 1;
-	while (k >= i)
+	k = argc;
+	while (i < k)
 	{
-		stack->arr[stack->top] = ft_atoi(argv[k]);
+		stack->arr[stack->top] = ft_atoi(argv[i]);
 		stack->top++;
-		k--;
+		i++;
 	}
 }

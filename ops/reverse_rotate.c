@@ -6,7 +6,7 @@
 /*   By: olkonuro <olkonuro@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/27 18:06:29 by tkartash          #+#    #+#             */
-/*   Updated: 2026/06/29 23:14:31 by olkonuro         ###   ########.fr       */
+/*   Updated: 2026/07/01 21:04:14 by olkonuro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	rev_rotate(t_stack *stack)
 		return ;
 	i = 0;
 	temp = stack->arr[i];
-	while (i <= stack->capacity - 2)
+	while (i <= stack->top - 2)
 	{
 		stack->arr[i] = stack->arr[i + 1];
 		i++;
