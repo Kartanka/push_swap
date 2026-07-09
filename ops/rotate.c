@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olkonuro <olkonuro@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: tkartash <tkartash@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/27 18:06:23 by tkartash          #+#    #+#             */
-/*   Updated: 2026/07/01 21:04:14 by olkonuro         ###   ########.fr       */
+/*   Updated: 2026/07/09 14:07:47 by tkartash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,24 @@ void	rotate(t_stack *stack)
 	stack->arr[i] = temp;
 }
 
-void	ra(t_stack *stack_a)
+void	ra(t_stack *stack_a, t_counter *counter)
 {
 	rotate(stack_a);
+	counter->ra++;
 	write (1, "ra\n", 3);
 }
 
-void	rb(t_stack *stack_b)
+void	rb(t_stack *stack_b, t_counter *counter)
 {
 	rotate(stack_b);
+	counter->rb++;
 	write (1, "rb\n", 3);
 }
 
-void	rr(t_stack *stack_a, t_stack *stack_b)
+void	rr(t_stack *stack_a, t_stack *stack_b, t_counter *counter)
 {
 	rotate(stack_a);
 	rotate(stack_b);
+	counter->rr++;
 	write (1, "rr\n", 3);
 }

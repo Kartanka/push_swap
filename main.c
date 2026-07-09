@@ -47,9 +47,9 @@ int	main(int argc, char **argv)
 		write(1, "\n", 1);
 		j--;
 	}
-	// selection_sort(stack_a, stack_b);
-	// medium_sort(stack_a, stack_b);
-	complex_sort(stack_a, stack_b);
+	// selection_sort(stack_a, stack_b, counter);
+	// medium_sort(stack_a, stack_b, counter);
+	complex_sort(stack_a, stack_b, counter);
 
 	printf("=======================\n");
 	j = stack_a->capacity - 1;
