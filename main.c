@@ -1,8 +1,13 @@
+
+#include <stdio.h>
 #include "libft.h"
 #include "push_swap.h"
 
+
 int	main(int argc, char **argv)
 {
+
+
 	t_stack		*stack_a;
 	t_stack		*stack_b;
 	int			capacity;
@@ -29,6 +34,9 @@ int	main(int argc, char **argv)
 	fill_stack(stack_a, argc, argv);
 	if (check_duplication(stack_a) == 1)
 		return (0);
+	// push_swap(flag->flag, flag->bench, stack_a, stack_b);
+	j = stack_a->capacity - 1;
+	while (j >= 0)
 	push_swap(flag->flag, flag->bench, stack_a, stack_b, counter);
 	while (j < stack_a->top)
 	{
@@ -37,7 +45,20 @@ int	main(int argc, char **argv)
 		write(1, "] = ", 4);
 		ft_putnbr_fd(stack_a->arr[j], 1);
 		write(1, "\n", 1);
-		j++;
+		j--;
+	}
+	// selection_sort(stack_a, stack_b);
+	// medium_sort(stack_a, stack_b);
+	complex_sort(stack_a, stack_b);
+
+	printf("=======================\n");
+	j = stack_a->capacity - 1;
+	while (j >= 0)
+	{
+		write(1, "stack_a ", 8);
+		ft_putnbr_fd(stack_a->arr[j], 1);
+		write(1, "\n", 1);
+		j--;
 	}
 	// stack_a =selection_sort(stack_a, stack_b);
 	// int *array = sorted_array(stack_a);
@@ -54,3 +75,4 @@ int	main(int argc, char **argv)
 	// }
 	return (0);
 }
+
