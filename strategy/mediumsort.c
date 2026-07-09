@@ -1,7 +1,7 @@
 #include "libft.h"
 #include "push_swap.h"
 
-void	push_chunks(t_stack *stack_a, t_stack *stack_b, int *sorted)
+void	push_chunks(t_stack *stack_a, t_stack *stack_b, int *sorted, t_counter *counter)
 {
 	int	i;
 	int	chunk;
@@ -16,7 +16,7 @@ void	push_chunks(t_stack *stack_a, t_stack *stack_b, int *sorted)
 			total = stack_a->top - 1;
 		if (stack_a->arr[stack_a->top - 1] <= sorted[i])
 		{
-			pb(stack_a, stack_b);
+			pb(stack_a, stack_b, counter);
 			rb(stack_b);
 			i++;
 		}
@@ -46,7 +46,7 @@ int	find_max(t_stack *stack_b)
 	return (max_idx);
 }
 
-void	push_max(t_stack *stack_a, t_stack *stack_b)
+void	push_max(t_stack *stack_a, t_stack *stack_b, t_counter *counter)
 {
 	int	max_idx;
 	int	max_el;
@@ -60,24 +60,23 @@ void	push_max(t_stack *stack_a, t_stack *stack_b)
 		while (index < stack_b->top - 1)
 		{
 			if (index < (stack_b->top) / 2)
-				rrb(stack_b);
+				rrb(stack_b, counter);
 			else
-				rb(stack_b);
+				rb(stack_b, counter);
 			index = indexOf(stack_b, max_el);
 		}
-		pa(stack_a, stack_b);
+		pa(stack_a, stack_b, counter);
 	}
 }
 
-void	medium_sort(t_stack *stack_a, t_stack *stack_b)
+void	medium_sort(t_stack *stack_a, t_stack *stack_b, t_counter *counter)
 {
 	int	*sorted;
 
 	sorted = malloc(sizeof(int) * stack_a->capacity);
 	ft_memcpy(sorted, stack_a->arr, sizeof(int) * stack_a->capacity);
 	sort(sorted, stack_a->capacity);
-	push_chunks(stack_a, stack_b, sorted);
+	push_chunks(stack_a, stack_b, sorted, counter);
 	free(sorted);
-	push_max(stack_a, stack_b);
+	push_max(stack_a, stack_b, counter);
 }
-

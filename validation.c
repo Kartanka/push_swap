@@ -35,13 +35,14 @@ int	validate_input(int argc, char **argv, t_config *flag)
 	while (i < argc)
 	{
 		j = 0;
-		if (argv[i][j] == '-' && ((is_flag(argv[i]) && flag->index_flag == i) || (flag->bench == 1)))
+		if (argv[i][j] == '-' && ((is_flag(argv[i]) && flag->index_flag == i)
+				|| (flag->bench == 1)))
 		{
 			i++;
 		}
 		else
 		{
-		j++;
+			j++;
 			while (argv[i][j])
 			{
 				if (!ft_isdigit(argv[i][j]))
@@ -59,13 +60,12 @@ int	validate_input(int argc, char **argv, t_config *flag)
 			}
 			i++;
 		}
-			
 	}
 	if (count_flag(argc, argv) > 2)
 	{
 		{
-				write(1, "Error\n", 6);
-				return (1);
+			write(1, "Error\n", 6);
+			return (1);
 		}
 	}
 	return (0);
