@@ -7,6 +7,7 @@
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/07 12:34:36 by tkartash          #+#    #+#             */
 /*   Updated: 2026/07/09 14:12:37 by olkonuro         ###   ########.fr       */
+/*   Updated: 2026/07/09 14:16:28 by tkartash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +18,7 @@ static void	sort_case_1(t_stack *stack, int top, int mid, int bot, t_counter *co
 {
 	if (top > mid && mid > bot)
 	{
+		sa(stack, counter);
 		sa(stack, counter);
 		rra(stack, counter);
 	}
@@ -30,6 +32,7 @@ static void	sort_case_2(t_stack *stack, int top, int mid, int bot, t_counter *co
 {
 	if (mid > bot && bot > top)
 	{
+		sa(stack, counter);
 		sa(stack, counter);
 		ra(stack, counter);
 	}
