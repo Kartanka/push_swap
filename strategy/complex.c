@@ -3,9 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   complex.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkartash <tkartash@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: olkonuro <olkonuro@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 15:54:08 by tkartash          #+#    #+#             */
+/*   Updated: 2026/07/09 14:23:34 by olkonuro         ###   ########.fr       */
 /*   Updated: 2026/07/09 14:17:00 by tkartash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -80,11 +81,11 @@ void	complex_sort(t_stack *stack_a, t_stack *stack_b, t_counter *counter)
 			if ((stack_a->arr[stack_a->top - 1] >> i) & 1 == 1)
 				ra(stack_a, counter);
 			else
-				pb(stack_a, stack_b);
+				pb(stack_a, stack_b, counter);
 			j++;
 		}
 		while (stack_b->top)
-			pa(stack_a, stack_b);
+			pa(stack_a, stack_b, counter);
 		i++;
 	}
 }

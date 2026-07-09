@@ -10,16 +10,16 @@ int	indexOf(t_stack *stack, int num)
 		return (-1);
 	while (i < stack->top)
 	{
-		if(stack->arr[i] == num)
-        {
+		if (stack->arr[i] == num)
+		{
 			return (i);
-        }
+		}
 		i++;
 	}
 	return (-1);
 }
 
-int indexOfarr(int *arr, int num, int capacity)
+int	indexOfarr(int *arr, int num, int capacity)
 {
 	int	i;
 
@@ -37,16 +37,17 @@ int indexOfarr(int *arr, int num, int capacity)
 
 int	round_sqrt(int n)
 {
-    int i = 1;
+	int	i;
 
-    if (n <= 0)
-        return (0);
-    while (i * i <= n)
-    {
-        if (i * i == n)
-            return (i);
-        i++;
-    }
+	i = 1;
+	if (n <= 0)
+		return (0);
+	while (i * i <= n)
+	{
+		if (i * i == n)
+			return (i);
+		i++;
+	}
 	return (i + 0.5);
 }
 
