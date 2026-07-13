@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   helper.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: olkonuro <olkonuro@student.42berlin.de>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/07/13 10:14:39 by olkonuro          #+#    #+#             */
+/*   Updated: 2026/07/13 10:16:26 by olkonuro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 #include "push_swap.h"
 
-int	indexOf(t_stack *stack, int num)
+int	index_of(t_stack *stack, int num)
 {
 	int	i;
 
@@ -19,7 +31,7 @@ int	indexOf(t_stack *stack, int num)
 	return (-1);
 }
 
-int	indexOfarr(int *arr, int num, int capacity)
+int	index_ofarr(int *arr, int num, int capacity)
 {
 	int	i;
 
@@ -51,7 +63,7 @@ int	round_sqrt(int n)
 	return (i + 0.5);
 }
 
-void	simpleSort(int *arr, int n)
+void	simple_sort(int *arr, int n)
 {
 	int	min_idx;
 	int	i;

@@ -6,8 +6,7 @@
 /*   By: olkonuro <olkonuro@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 15:54:08 by tkartash          #+#    #+#             */
-/*   Updated: 2026/07/09 14:23:34 by olkonuro         ###   ########.fr       */
-/*   Updated: 2026/07/09 14:17:00 by tkartash         ###   ########.fr       */
+/*   Updated: 2026/07/13 10:36:48 by olkonuro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +20,11 @@ void	sort_ranks(t_stack *stack)
 
 	sorted = malloc(sizeof(int) * stack->capacity);
 	ft_memcpy(sorted, stack->arr, sizeof(int) * stack->capacity);
-	simpleSort(sorted, stack->capacity);
+	simple_sort(sorted, stack->capacity);
 	i = 0;
 	while (i < stack->capacity)
 	{
-		stack->arr[i] = indexOfarr(sorted, stack->arr[i], stack->capacity);
+		stack->arr[i] = index_ofarr(sorted, stack->arr[i], stack->capacity);
 		i++;
 	}
 	free(sorted);
@@ -78,7 +77,7 @@ void	complex_sort(t_stack *stack_a, t_stack *stack_b, t_counter *counter)
 		j = 0;
 		while (j < stack_a->capacity)
 		{
-			if ((stack_a->arr[stack_a->top - 1] >> i) & 1 == 1)
+			if (((stack_a->arr[stack_a->top - 1] >> i) & 1) == 1)
 				ra(stack_a, counter);
 			else
 				pb(stack_a, stack_b, counter);

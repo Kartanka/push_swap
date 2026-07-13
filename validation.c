@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   validation.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: olkonuro <olkonuro@student.42berlin.de>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/07/13 10:22:39 by olkonuro          #+#    #+#             */
+/*   Updated: 2026/07/13 10:23:17 by olkonuro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 #include "push_swap.h"
 #include <limits.h>
@@ -37,9 +49,7 @@ int	validate_input(int argc, char **argv, t_config *flag)
 		j = 0;
 		if (argv[i][j] == '-' && ((is_flag(argv[i]) && flag->index_flag == i)
 				|| (flag->bench == 1)))
-		{
 			i++;
-		}
 		else
 		{
 			j++;

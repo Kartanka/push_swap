@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkartash <tkartash@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: olkonuro <olkonuro@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/27 18:06:23 by tkartash          #+#    #+#             */
-/*   Updated: 2026/07/09 14:07:47 by tkartash         ###   ########.fr       */
+/*   Updated: 2026/07/13 10:00:16 by olkonuro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,14 @@ void	ra(t_stack *stack_a, t_counter *counter)
 {
 	rotate(stack_a);
 	counter->ra++;
-	write (1, "ra\n", 3);
+	write(1, "ra\n", 3);
 }
 
 void	rb(t_stack *stack_b, t_counter *counter)
 {
 	rotate(stack_b);
 	counter->rb++;
-	write (1, "rb\n", 3);
+	write(1, "rb\n", 3);
 }
 
 void	rr(t_stack *stack_a, t_stack *stack_b, t_counter *counter)
@@ -48,5 +48,5 @@ void	rr(t_stack *stack_a, t_stack *stack_b, t_counter *counter)
 	rotate(stack_a);
 	rotate(stack_b);
 	counter->rr++;
-	write (1, "rr\n", 3);
+	write(1, "rr\n", 3);
 }

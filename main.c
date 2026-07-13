@@ -1,21 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: olkonuro <olkonuro@student.42berlin.de>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/07/13 10:18:30 by olkonuro          #+#    #+#             */
+/*   Updated: 2026/07/13 11:42:47 by olkonuro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
 #include "push_swap.h"
-
+#include <stdio.h>
 
 int	main(int argc, char **argv)
 {
-
-
 	t_stack		*stack_a;
 	t_stack		*stack_b;
 	int			capacity;
-	int			j;
 	t_config	*flag;
 	t_counter	*counter;
 
-	j = 0;
 	counter = init_counter();
 	flag = parse_config(argc, argv);
 	if (argc < 2)
@@ -27,52 +33,33 @@ int	main(int argc, char **argv)
 	stack_b = init_stack(capacity);
 	if (!stack_a || !stack_b)
 	{
+		if (stack_a)
+			free(stack_a->arr);
+		if (stack_b)
+			free(stack_b->arr);
 		free(stack_a);
 		free(stack_b);
+		free(flag);
+		free(counter);
 		return (0);
 	}
 	fill_stack(stack_a, argc, argv);
 	if (check_duplication(stack_a) == 1)
+	{
+		free(stack_a->arr);
+		free(stack_b->arr);
+		free(stack_a);
+		free(stack_b);
+		free(flag);
+		free(counter);
 		return (0);
-	// push_swap(flag->flag, flag->bench, stack_a, stack_b);
-	j = stack_a->capacity - 1;
-	while (j >= 0)
-	push_swap(flag->flag, flag->bench, stack_a, stack_b, counter);
-	while (j < stack_a->top)
-	{
-		write(1, "stack[", 6);
-		ft_putnbr_fd(j, 1);
-		write(1, "] = ", 4);
-		ft_putnbr_fd(stack_a->arr[j], 1);
-		write(1, "\n", 1);
-		j--;
 	}
-	// selection_sort(stack_a, stack_b, counter);
-	// medium_sort(stack_a, stack_b, counter);
-	complex_sort(stack_a, stack_b, counter);
-
-	printf("=======================\n");
-	j = stack_a->capacity - 1;
-	while (j >= 0)
-	{
-		write(1, "stack_a ", 8);
-		ft_putnbr_fd(stack_a->arr[j], 1);
-		write(1, "\n", 1);
-		j--;
-	}
-	// stack_a =selection_sort(stack_a, stack_b);
-	// int *array = sorted_array(stack_a);
-	// j = 0;
-	// write(1, "\nSorted array:\n", 15);
-	// while (j < stack_a->top)
-	// {
-	// 	write(1, "arr[", 4);
-	// 	ft_putnbr_fd(j, 1);
-	// 	write(1, "] = ", 4);
-	// 	ft_putnbr_fd(array[j], 1);
-	// 	write(1, "\n", 1);
-	// 	j++;
-	// }
+	push_swap(flag, stack_a, stack_b, counter);
+	free(stack_a->arr);
+	free(stack_b->arr);
+	free(stack_a);
+	free(stack_b);
+	free(flag);
+	free(counter);
 	return (0);
 }
-

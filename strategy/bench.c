@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   bench.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: olkonuro <olkonuro@student.42berlin.de>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/07/13 10:11:35 by olkonuro          #+#    #+#             */
+/*   Updated: 2026/07/13 10:11:37 by olkonuro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 #include "libft.h"
 #include "push_swap.h"
@@ -17,11 +29,11 @@ void	description(char *flag, float disorder)
 		ft_printf("Adaptive / %s", algorithm);
 	}
 	else if (ft_strcmp(flag, "--simple") == 0)
-		ft_printf("Simple / %s", algorithm);
+		ft_printf("Simple / O(n²)");
 	else if (ft_strcmp(flag, "--medium") == 0)
-		ft_printf("Medium / %s", algorithm);
+		ft_printf("Medium / O(n√n)");
 	else if (ft_strcmp(flag, "--complex") == 0)
-		ft_printf("Complex / %s", algorithm);
+		ft_printf("Complex / O(n·log n)");
 }
 
 void	bench_mark(float disorder, t_counter *counter, char *flag)

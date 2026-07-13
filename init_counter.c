@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-t_counter	*init_counter()
+t_counter	*init_counter(void)
 {
 	t_counter	*counter;
 
@@ -19,5 +19,4 @@ t_counter	*init_counter()
 	counter->rrb = 0;
 	counter->rrr = 0;
 	return (counter);
-
 }

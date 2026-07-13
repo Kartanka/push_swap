@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkartash <tkartash@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: olkonuro <olkonuro@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/27 18:06:29 by tkartash          #+#    #+#             */
-/*   Updated: 2026/07/09 14:06:29 by tkartash         ###   ########.fr       */
+/*   Updated: 2026/07/13 10:00:11 by olkonuro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,14 @@ void	rra(t_stack *stack_a, t_counter *counter)
 {
 	rev_rotate(stack_a);
 	counter->rra++;
-	write (1, "rra\n", 4);
+	write(1, "rra\n", 4);
 }
 
 void	rrb(t_stack *stack_b, t_counter *counter)
 {
 	rev_rotate(stack_b);
 	counter->rrb++;
-	write (1, "rrb\n", 4);
+	write(1, "rrb\n", 4);
 }
 
 void	rrr(t_stack *stack_a, t_stack *stack_b, t_counter *counter)
@@ -48,5 +48,5 @@ void	rrr(t_stack *stack_a, t_stack *stack_b, t_counter *counter)
 	rev_rotate(stack_a);
 	rev_rotate(stack_b);
 	counter->rrr++;
-	write (1, "rrr\n", 4);
+	write(1, "rrr\n", 4);
 }
