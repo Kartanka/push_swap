@@ -6,53 +6,49 @@
 /*   By: olkonuro <olkonuro@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/07 12:34:36 by tkartash          #+#    #+#             */
-/*   Updated: 2026/07/09 14:12:37 by olkonuro         ###   ########.fr       */
-/*   Updated: 2026/07/09 14:16:28 by tkartash         ###   ########.fr       */
+/*   Updated: 2026/07/13 10:35:19 by olkonuro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "push_swap.h"
 
-static void	sort_case_1(t_stack *stack, int top, int mid, int bot, t_counter *counter)
+static void	handle_sort(t_stack *s, t_counter *c, int a, int b)
 {
-	if (top > mid && mid > bot)
-	{
-		sa(stack, counter);
-		sa(stack, counter);
-		rra(stack, counter);
-	}
-	else if (top > bot && bot > mid)
-		ra(stack, counter);
-	else if (mid > top && top > bot)
-		rra(stack, counter);
-}
+	int	bot;
 
-static void	sort_case_2(t_stack *stack, int top, int mid, int bot, t_counter *counter)
-{
-	if (mid > bot && bot > top)
+	bot = s->arr[0];
+	if (a > b && b > bot)
 	{
-		sa(stack, counter);
-		sa(stack, counter);
-		ra(stack, counter);
+		sa(s, c);
+		rra(s, c);
 	}
-	else if (bot > top && top > mid)
-		sa(stack, counter);
+	else if (b > a && b > bot && a < bot)
+	{
+		sa(s, c);
+		ra(s, c);
+	}
 }
 
 t_stack	*sort_three(t_stack *stack, t_counter *counter)
 {
-	int	top;
-	int	mid;
-	int	bot;
+	int	a;
+	int	b;
+	int	c;
 
 	if (stack->top != 3)
 		return (stack);
-	top = stack->arr[2];
-	mid = stack->arr[1];
-	bot = stack->arr[0];
-	sort_case_1(stack, top, mid, bot, counter);
-	sort_case_2(stack, top, mid, bot, counter);
+	a = stack->arr[2];
+	b = stack->arr[1];
+	c = stack->arr[0];
+	if (a > b && b < c && a < c)
+		sa(stack, counter);
+	else if (a > b && a > c)
+		ra(stack, counter);
+	else if (b > a && b > c && a > c)
+		rra(stack, counter);
+	else
+		handle_sort(stack, counter, a, b);
 	return (stack);
 }
 
@@ -90,7 +86,7 @@ void	selection_sort(t_stack *stack_a, t_stack *stack_b, t_counter *counter)
 				rra(stack_a, counter);
 			else
 				ra(stack_a, counter);
-			index = indexOf(stack_a, min_el);
+			index = index_of(stack_a, min_el);
 		}
 		pb(stack_a, stack_b, counter);
 	}

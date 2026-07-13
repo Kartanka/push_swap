@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parser.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: olkonuro <olkonuro@student.42berlin.de>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/07/13 10:19:08 by olkonuro          #+#    #+#             */
+/*   Updated: 2026/07/13 10:21:05 by olkonuro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 #include "push_swap.h"
 
@@ -26,7 +38,7 @@ char	*is_flag(char *argv)
 {
 	int		len;
 	char	*valid_flags[4] = {"--simple", "--medium", "--complex",
-			"--adaptive"};
+		"--adaptive"};
 	int		j;
 
 	j = 0;

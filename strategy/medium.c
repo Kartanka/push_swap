@@ -3,17 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   medium.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkartash <tkartash@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: olkonuro <olkonuro@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/07 10:47:51 by tkartash          #+#    #+#             */
-/*   Updated: 2026/07/09 14:13:47 by tkartash         ###   ########.fr       */
+/*   Updated: 2026/07/13 10:36:05 by olkonuro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "push_swap.h"
 
-void	push_chunks(t_stack *stack_a, t_stack *stack_b, int *sorted, t_counter *counter)
+void	push_chunks(t_stack *stack_a, t_stack *stack_b, int *sorted,
+		t_counter *counter)
 {
 	int	i;
 	int	chunk;
@@ -28,13 +29,13 @@ void	push_chunks(t_stack *stack_a, t_stack *stack_b, int *sorted, t_counter *cou
 			total = stack_a->top - 1;
 		if (stack_a->arr[stack_a->top - 1] <= sorted[i])
 		{
-			pb(stack_a, stack_b);
+			pb(stack_a, stack_b, counter);
 			rb(stack_b, counter);
 			i++;
 		}
 		else if (stack_a->arr[stack_a->top - 1] <= sorted[total])
 		{
-			pb(stack_a, stack_b);
+			pb(stack_a, stack_b, counter);
 			i++;
 		}
 		else
@@ -75,9 +76,9 @@ void	push_max(t_stack *stack_a, t_stack *stack_b, t_counter *counter)
 				rrb(stack_b, counter);
 			else
 				rb(stack_b, counter);
-			index = indexOf(stack_b, max_el);
+			index = index_of(stack_b, max_el);
 		}
-		pa(stack_a, stack_b);
+		pa(stack_a, stack_b, counter);
 	}
 }
 
@@ -87,7 +88,7 @@ void	medium_sort(t_stack *stack_a, t_stack *stack_b, t_counter *counter)
 
 	sorted = malloc(sizeof(int) * stack_a->capacity);
 	ft_memcpy(sorted, stack_a->arr, sizeof(int) * stack_a->capacity);
-	simpleSort(sorted, stack_a->capacity);
+	simple_sort(sorted, stack_a->capacity);
 	push_chunks(stack_a, stack_b, sorted, counter);
 	free(sorted);
 	push_max(stack_a, stack_b, counter);
